@@ -1,0 +1,173 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:SteamShare.UI.ViewModels"
+        xmlns:conv="clr-namespace:SteamShare.UI.Converters"
+        xmlns:svc="clr-namespace:SteamShare.UI.Services"
+        xmlns:ext="clr-namespace:SteamShare.UI.Converters"
+        x:Class="SteamShare.UI.Views.MainWindow"
+        x:DataType="vm:MainViewModel"
+        Title="{ext:Localize App_Name}"
+        MinWidth="900"
+        MinHeight="600"
+        Width="1200"
+        Height="800">
+
+    <Panel>
+        <Grid ColumnDefinitions="200,*">
+            <!-- ── Left Sidebar ── -->
+            <Border Grid.Column="0"
+                    Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                    BorderBrush="{DynamicResource SystemControlForegroundChromeDisabledLowBrush}"
+                    BorderThickness="0,0,1,0">
+                <Grid RowDefinitions="Auto,*">
+                    <TextBlock Grid.Row="0"
+                                Text="{ext:Localize App_Name}"
+                               FontSize="20"
+                               FontWeight="SemiBold"
+                               Margin="16,16,16,12"
+                               Foreground="{DynamicResource SystemControlForegroundAccentBrush}" />
+
+                    <StackPanel Grid.Row="1"
+                                Margin="8,4"
+                                Spacing="2">
+                        <Button Content="{ext:Localize Label_Tasks}"
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Left"
+                                Padding="16,10"
+                                Margin="4,2"
+                                CornerRadius="6"
+                                Background="Transparent"
+                                Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"
+                                Command="{Binding NavigateToTasksCommand}" />
+                        <Button Content="{ext:Localize Label_MyFileGroups}"
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Left"
+                                Padding="16,10"
+                                Margin="4,2"
+                                CornerRadius="6"
+                                Background="Transparent"
+                                Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"
+                                Command="{Binding NavigateToMyFileGroupsCommand}" />
+                        <Button Content="{ext:Localize Label_Downloaded}"
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Left"
+                                Padding="16,10"
+                                Margin="4,2"
+                                CornerRadius="6"
+                                Background="Transparent"
+                                Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"
+                                Command="{Binding NavigateToDownloadedCommand}" />
+                        <Button Content="{ext:Localize Label_Settings}"
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Left"
+                                Padding="16,10"
+                                Margin="4,2"
+                                CornerRadius="6"
+                                Background="Transparent"
+                                Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"
+                                Command="{Binding NavigateToSettingsCommand}" />
+                        <Button Content="{ext:Localize Label_About}"
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Left"
+                                Padding="16,10"
+                                Margin="4,2"
+                                CornerRadius="6"
+                                Background="Transparent"
+                                Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"
+                                Command="{Binding NavigateToAboutCommand}" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- ── Right Content Area ── -->
+            <Grid Grid.Column="1"
+                  RowDefinitions="Auto,*,Auto">
+                <!-- Disclaimer banner -->
+                <Border Grid.Row="0"
+                        IsVisible="{Binding ShowDisclaimer}"
+                        Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}"
+                        BorderBrush="{DynamicResource SystemControlForegroundChromeDisabledLowBrush}"
+                        BorderThickness="0,0,0,1"
+                        Padding="16,10">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <StackPanel Grid.Column="0"
+                                    Orientation="Horizontal"
+                                    VerticalAlignment="Center"
+                                    Spacing="8">
+                            <TextBlock Text="&#x26a0;"
+                                       FontSize="16"
+                                       VerticalAlignment="Center" />
+                            <TextBlock Text="{ext:Localize Disclaimer_Sidebar}"
+                                       TextWrapping="Wrap"
+                                       VerticalAlignment="Center"
+                                       Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" />
+                        </StackPanel>
+                        <Button Grid.Column="1"
+                                Content="{ext:Localize Label_Dismiss}"
+                                Margin="16,0,0,0"
+                                VerticalAlignment="Center"
+                                Command="{Binding DismissDisclaimerCommand}" />
+                    </Grid>
+                </Border>
+
+                <!-- Main content host -->
+                <ContentControl Grid.Row="1"
+                                Content="{Binding CurrentView}"
+                                Margin="0" />
+
+                <!-- Steam status bar -->
+                <Border Grid.Row="2"
+                        Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                        BorderBrush="{DynamicResource SystemControlForegroundChromeDisabledLowBrush}"
+                        BorderThickness="0,1,0,0"
+                        Padding="12,6">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <Ellipse Width="8"
+                                 Height="8"
+                                 Fill="Green"
+                                 IsVisible="{Binding IsSteamConnected}"
+                                 VerticalAlignment="Center" />
+                        <Ellipse Width="8"
+                                 Height="8"
+                                 Fill="Gray"
+                                 IsVisible="{Binding IsSteamConnected, Converter={x:Static conv:BoolNotConverter.Instance}}"
+                                 VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding SteamStatusText}"
+                                   FontSize="12"
+                                   Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                                   VerticalAlignment="Center" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+
+        <!-- ── Toast Notification Overlay ── -->
+        <ItemsControl x:Name="ToastContainer"
+                      VerticalAlignment="Top"
+                      HorizontalAlignment="Right"
+                      Margin="12"
+                      ZIndex="1000"
+                      IsHitTestVisible="False">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Spacing="6" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="svc:ToastMessage">
+                    <Border Padding="12,10"
+                            CornerRadius="8"
+                            MinWidth="280"
+                            MaxWidth="400"
+                            IsHitTestVisible="False"
+                            Background="{Binding Type, Converter={x:Static conv:ToastTypeConverter.Instance}}">
+                        <TextBlock Text="{Binding Message}"
+                                   TextWrapping="Wrap"
+                                   FontSize="13"
+                                   Foreground="White" />
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Panel>
+</Window>

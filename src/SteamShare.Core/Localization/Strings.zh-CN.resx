@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="App_Name" xml:space="preserve"><value>SteamShare</value></data>
+  <data name="Label_Upload" xml:space="preserve"><value>上传</value></data>
+  <data name="Label_Download" xml:space="preserve"><value>下载</value></data>
+  <data name="Label_Share" xml:space="preserve"><value>分享</value></data>
+  <data name="Label_Delete" xml:space="preserve"><value>删除</value></data>
+  <data name="Label_Rename" xml:space="preserve"><value>重命名</value></data>
+  <data name="Label_Move" xml:space="preserve"><value>移动</value></data>
+  <data name="Label_Settings" xml:space="preserve"><value>设置</value></data>
+  <data name="Label_About" xml:space="preserve"><value>关于</value></data>
+  <data name="Label_Refresh" xml:space="preserve"><value>刷新</value></data>
+  <data name="Label_Cancel" xml:space="preserve"><value>取消</value></data>
+  <data name="Label_Confirm" xml:space="preserve"><value>确认</value></data>
+  <data name="Label_Close" xml:space="preserve"><value>关闭</value></data>
+  <data name="Label_Language" xml:space="preserve"><value>语言</value></data>
+  <data name="Label_Theme" xml:space="preserve"><value>主题</value></data>
+  <data name="Label_Visibility" xml:space="preserve"><value>可见性</value></data>
+  <data name="Label_Downloads" xml:space="preserve"><value>下载</value></data>
+  <data name="Label_Downloaded" xml:space="preserve"><value>已下载</value></data>
+  <data name="Label_Dismiss" xml:space="preserve"><value>忽略</value></data>
+  <data name="Label_OpenFolder" xml:space="preserve"><value>打开文件夹</value></data>
+  <data name="Label_Verify" xml:space="preserve"><value>验证</value></data>
+  <data name="Label_DeleteLocal" xml:space="preserve"><value>删除本地</value></data>
+  <data name="Label_Browse" xml:space="preserve"><value>浏览...</value></data>
+  <data name="Label_SaveSettings" xml:space="preserve"><value>保存设置</value></data>
+  <data name="Label_Error" xml:space="preserve"><value>错误</value></data>
+  <data name="Label_Expand" xml:space="preserve"><value>展开</value></data>
+  <data name="Label_OpenLogFile" xml:space="preserve"><value>打开日志文件</value></data>
+  <data name="Label_MyFileGroups" xml:space="preserve"><value>我的文件组</value></data>
+  <data name="Label_DownloadedGroups" xml:space="preserve"><value>已下载文件组</value></data>
+  <data name="Label_NoItems" xml:space="preserve"><value>暂无内容</value></data>
+  <data name="Visibility_Private" xml:space="preserve"><value>私密</value></data>
+  <data name="Visibility_Unlisted" xml:space="preserve"><value>仅分享</value></data>
+  <data name="Visibility_Public" xml:space="preserve"><value>公开</value></data>
+  <data name="Error_SteamNotRunning" xml:space="preserve"><value>Steam 客户端未运行。请启动 Steam 后重试。</value></data>
+  <data name="Error_WorkshopUpload" xml:space="preserve"><value>上传到 Steam 创意工坊失败。请检查网络连接后重试。</value></data>
+  <data name="Error_WorkshopDownload" xml:space="preserve"><value>从 Steam 创意工坊下载失败。请检查网络连接后重试。</value></data>
+  <data name="Error_ShareKeyParse" xml:space="preserve"><value>分享密钥无效或格式错误。</value></data>
+  <data name="Error_ShareKeyCrypto" xml:space="preserve"><value>解密分享密钥失败。密码可能不正确。</value></data>
+  <data name="Error_FileGroupNotFound" xml:space="preserve"><value>未找到请求的文件组。</value></data>
+  <data name="Error_ConfigLoad" xml:space="preserve"><value>加载配置失败，使用默认设置。</value></data>
+  <data name="Error_MetadataOverflow" xml:space="preserve"><value>文件组元数据超出 Steam 创意工坊存储限制。</value></data>
+  <data name="Error_UnknownGeneric" xml:space="preserve"><value>发生了未知错误。</value></data>
+  <data name="Error_SteamNotConnected" xml:space="preserve"><value>Steam 未连接。正在离线模式下运行。</value></data>
+  <data name="Error_SteamInitFailed" xml:space="preserve"><value>Steam 初始化失败：{0}</value></data>
+  <data name="Prompt_DeleteConfirmation" xml:space="preserve"><value>确定要删除此文件组吗？此操作不可撤销。</value></data>
+  <data name="Prompt_VisibilityChange" xml:space="preserve"><value>您即将将可见性更改为 {0}。这将使文件组{1}。</value></data>
+  <data name="Prompt_EnterShareKey" xml:space="preserve"><value>请输入分享密钥。</value></data>
+  <data name="Prompt_EnterNewName" xml:space="preserve"><value>输入新名称：</value></data>
+  <data name="Prompt_DeleteFileGroupConfirmation" xml:space="preserve"><value>确定要删除 "{0}" 吗？此操作不可撤销。</value></data>
+  <data name="Prompt_DeleteLocalConfirmation" xml:space="preserve"><value>删除 "{0}" 的本地副本？创意工坊项目不会受影响。</value></data>
+  <data name="Prompt_VisibilityPublicConfirm" xml:space="preserve"><value>您即将将 "{0}" 设为公开。任何人都可以找到并订阅。是否继续？</value></data>
+  <data name="Title_DeleteFileGroup" xml:space="preserve"><value>删除文件组</value></data>
+  <data name="Title_DeleteLocalFile" xml:space="preserve"><value>删除本地文件</value></data>
+  <data name="Title_ChangeVisibility" xml:space="preserve"><value>更改可见性</value></data>
+  <data name="Title_Rename" xml:space="preserve"><value>重命名</value></data>
+  <data name="Notification_InvalidName" xml:space="preserve"><value>名称包含无效字符（\、/ 等）。</value></data>
+  <data name="UI_Download_PasswordOptional" xml:space="preserve"><value>密码（如果已加密）</value></data>
+  <data name="UI_Download_ShareKeyWatermark" xml:space="preserve"><value>输入分享密钥（sshare+...）</value></data>
+  <data name="UI_FileCountFormat" xml:space="preserve"><value>{0} 个文件</value></data>
+  <data name="Disclaimer_Main" xml:space="preserve"><value>警告：下载的文件可能包含病毒或恶意内容。打开前务必扫描文件。SteamShare 与 Valve 或 Steam 无关。</value></data>
+  <data name="Disclaimer_Downloads" xml:space="preserve"><value>注意：来自不可信来源的文件可能包含恶意软件。使用前请扫描所有文件。</value></data>
+  <data name="State_Downloading" xml:space="preserve"><value>正在下载...</value></data>
+  <data name="State_Uploading" xml:space="preserve"><value>正在上传...</value></data>
+  <data name="State_Completed" xml:space="preserve"><value>已完成</value></data>
+  <data name="State_Starting" xml:space="preserve"><value>正在启动...</value></data>
+  <data name="State_Cancelled" xml:space="preserve"><value>已取消</value></data>
+  <data name="State_DownloadingProgress" xml:space="preserve"><value>正在下载 — {0} / {1}</value></data>
+  <data name="State_DownloadingSimple" xml:space="preserve"><value>正在下载 — {0}</value></data>
+  <data name="Disclaimer_ShareWarning" xml:space="preserve"><value>请确保您有权分享上传的内容。滥用可能违反 Steam 服务条款。</value></data>
+  <data name="Disclaimer_Sidebar" xml:space="preserve"><value>本软件使用 Steam 创意工坊分享文件。请仅分享您有权分发的内容。</value></data>
+  <data name="UI_Download_EnterShareKey" xml:space="preserve"><value>输入分享密钥</value></data>
+  <data name="UI_Download_ActiveDownloads" xml:space="preserve"><value>正在下载</value></data>
+  <data name="UI_Download_NoActiveDownloads" xml:space="preserve"><value>没有正在进行的下载。</value></data>
+  <data name="UI_Download_CompletedDownloads" xml:space="preserve"><value>已完成下载</value></data>
+  <data name="UI_Download_NoCompletedDownloads" xml:space="preserve"><value>没有已完成的下载。</value></data>
+  <data name="UI_FileGroups_EmptyState" xml:space="preserve"><value>未找到文件组。上传您的第一个文件组开始使用。</value></data>
+  <data name="UI_Downloaded_Header" xml:space="preserve"><value>已下载文件组</value></data>
+  <data name="UI_Downloaded_EmptyState" xml:space="preserve"><value>没有已下载的文件组。使用下载管理器下载分享内容。</value></data>
+  <data name="UI_Settings_Header" xml:space="preserve"><value>设置</value></data>
+  <data name="UI_Settings_LanguageDesc" xml:space="preserve"><value>选择界面语言。</value></data>
+  <data name="UI_Settings_ThemeDesc" xml:space="preserve"><value>保存后立即应用更改。</value></data>
+  <data name="UI_Settings_DownloadDir" xml:space="preserve"><value>下载目录</value></data>
+  <data name="UI_Settings_DownloadDirDesc" xml:space="preserve"><value>从分享密钥下载时，文件保存在此目录。</value></data>
+  <data name="UI_Settings_DownloadDirPlaceholder" xml:space="preserve"><value>默认: ~/Downloads/SteamShare</value></data>
+  <data name="UI_Settings_AutoTrackInterval" xml:space="preserve"><value>自动跟踪间隔（秒）</value></data>
+  <data name="UI_Settings_AutoTrackIntervalDesc" xml:space="preserve"><value>检查已跟踪文件组更新的频率。</value></data>
+  <data name="UI_Settings_LogsSection" xml:space="preserve"><value>日志</value></data>
+  <data name="UI_Settings_LogsDesc" xml:space="preserve"><value>查看应用程序日志文件以进行故障排除。</value></data>
+  <data name="UI_Settings_LogDesc" xml:space="preserve"><value>查看 SteamShare 应用程序日志以进行调试。</value></data>
+  <data name="UI_About_Section" xml:space="preserve"><value>关于 SteamShare</value></data>
+  <data name="UI_About_Description" xml:space="preserve"><value>SteamShare 是一个使用 Steam 创意工坊分享文件组的工具。创建文件集合，上传到 Steam 创意工坊，并使用安全的分享密钥与好友分享。</value></data>
+  <data name="UI_About_VersionLabel" xml:space="preserve"><value>版本 </value></data>
+  <data name="UI_About_LicenseLabel" xml:space="preserve"><value>许可证：</value></data>
+  <data name="UI_About_RepoLabel" xml:space="preserve"><value>仓库：</value></data>
+  <data name="UI_About_SteamDisclaimerHead" xml:space="preserve"><value>Steam 免责声明</value></data>
+  <data name="UI_About_SteamDisclaimerBody" xml:space="preserve"><value>Steam 是 Valve Corporation 的商标。SteamShare 与 Valve Corporation 无关联、未获其认可或赞助。所有商标均为其各自所有者的财产。</value></data>
+  <data name="UI_About_DependenciesHead" xml:space="preserve"><value>依赖项</value></data>
+  <data name="UI_Error_Unexpected" xml:space="preserve"><value>发生了意外错误：</value></data>
+  <data name="Label_Yes" xml:space="preserve"><value>是</value></data>
+  <data name="Label_No" xml:space="preserve"><value>否</value></data>
+  <data name="Label_OK" xml:space="preserve"><value>确定</value></data>
+  <data name="Prompt_EnterValue" xml:space="preserve"><value>输入值...</value></data>
+  <data name="Notification_SettingsSaved" xml:space="preserve"><value>设置已保存成功。</value></data>
+  <data name="Notification_SettingsSaveError" xml:space="preserve"><value>保存设置失败: {0}</value></data>
+  <data name="Notification_DownloadComplete" xml:space="preserve"><value>下载完成</value></data>
+  <data name="Notification_DownloadCancelled" xml:space="preserve"><value>下载已取消。</value></data>
+  <data name="Notification_DownloadFailed" xml:space="preserve"><value>下载失败: {0}</value></data>
+  <data name="Notification_RefreshFailed" xml:space="preserve"><value>刷新失败: {0}</value></data>
+  <data name="Notification_Uploaded" xml:space="preserve"><value>上传成功: {0}</value></data>
+  <data name="Notification_UploadStarted" xml:space="preserve"><value>开始上传: {0}</value></data>
+  <data name="Notification_UploadFailed" xml:space="preserve"><value>上传失败: {0}</value></data>
+  <data name="Notification_ShareKeyGenerated" xml:space="preserve"><value>分享密钥: {0}</value></data>
+  <data name="Notification_ShareKeyGenerateFailed" xml:space="preserve"><value>生成分享密钥失败: {0}</value></data>
+  <data name="Notification_Deleted" xml:space="preserve"><value>已删除: {0}</value></data>
+  <data name="Notification_DeleteFailed" xml:space="preserve"><value>删除失败: {0}</value></data>
+  <data name="Notification_Renamed" xml:space="preserve"><value>已重命名为: {0}</value></data>
+  <data name="Notification_RenameFailed" xml:space="preserve"><value>重命名失败: {0}</value></data>
+  <data name="Notification_VisibilityChanged" xml:space="preserve"><value>可见性已更改: {0}</value></data>
+  <data name="Notification_VisibilityChangeFailed" xml:space="preserve"><value>可见性更改失败: {0}</value></data>
+  <data name="Notification_VerifyPassed" xml:space="preserve"><value>验证通过: {0}</value></data>
+  <data name="Notification_VerifyFailed" xml:space="preserve"><value>验证失败: {0}</value></data>
+  <data name="Notification_VerifyError" xml:space="preserve"><value>验证错误: {0}</value></data>
+  <data name="Notification_LocalDeleted" xml:space="preserve"><value>已删除本地副本: {0}</value></data>
+  <data name="Status_SteamConnected" xml:space="preserve"><value>Steam: 已连接</value></data>
+  <data name="Status_SteamDisconnected" xml:space="preserve"><value>Steam: 未连接</value></data>
+  <data name="Error_SteamNotLoggedIn" xml:space="preserve"><value>Steam 正在运行但您未登录。请登录 Steam 后重试。</value></data>
+  <data name="Error_NativeDllNotFound" xml:space="preserve"><value>未找到 Steam 原生 DLL。请确保 Steam 已安装且 steam_api64.dll 可访问。</value></data>
+  <data name="Error_PlatformMismatch" xml:space="preserve"><value>Steam API 平台不匹配。Steam 客户端版本可能不兼容。</value></data>
+  <data name="Error_Unknown" xml:space="preserve"><value>Steam 初始化期间发生未知错误。</value></data>
+  <data name="CLI_Disclaimer_Title" xml:space="preserve"><value>⚠ 免责声明</value></data>
+  <data name="CLI_Disclaimer_Line1" xml:space="preserve"><value>SteamShare 使用 Steam API 在用户之间共享文件。</value></data>
+  <data name="CLI_Disclaimer_Line2" xml:space="preserve"><value>使用本软件即表示您确认：</value></data>
+  <data name="CLI_Disclaimer_Bullet1" xml:space="preserve"><value>文件通过 Steam 创意工坊传输（默认为公开）</value></data>
+  <data name="CLI_Disclaimer_Bullet2" xml:space="preserve"><value>您对所分享的内容负责</value></data>
+  <data name="CLI_Disclaimer_Bullet3" xml:space="preserve"><value>本软件按"原样"提供，不作任何保证</value></data>
+  <data name="CLI_Disclaimer_SuppressHint" xml:space="preserve"><value>使用 --accept-disclaimer 参数可隐藏此信息。</value></data>
+  <data name="Label_Size" xml:space="preserve"><value>大小</value></data>
+  <data name="Label_Tasks" xml:space="preserve"><value>任务</value></data>
+  <data name="Label_ActiveTasks" xml:space="preserve"><value>进行中</value></data>
+  <data name="Label_CompletedTasks" xml:space="preserve"><value>已完成</value></data>
+  <data name="Category_Upload" xml:space="preserve"><value>上传</value></data>
+  <data name="Category_Download" xml:space="preserve"><value>下载</value></data>
+  <data name="Category_Share" xml:space="preserve"><value>分享</value></data>
+  <data name="Category_Delete" xml:space="preserve"><value>删除</value></data>
+  <data name="Category_General" xml:space="preserve"><value>通用</value></data>
+  <data name="TaskStatus_Pending" xml:space="preserve"><value>等待中</value></data>
+  <data name="TaskStatus_Running" xml:space="preserve"><value>运行中</value></data>
+  <data name="TaskStatus_Completed" xml:space="preserve"><value>完成</value></data>
+  <data name="TaskStatus_Failed" xml:space="preserve"><value>失败</value></data>
+  <data name="TaskStatus_Cancelled" xml:space="preserve"><value>已取消</value></data>
+  <data name="Label_UnknownVersion" xml:space="preserve"><value>未知</value></data>
+  <data name="Language_enUS" xml:space="preserve"><value>English (US)</value></data>
+  <data name="Language_zhCN" xml:space="preserve"><value>中文(简体)</value></data>
+  <data name="Theme_System" xml:space="preserve"><value>跟随系统</value></data>
+  <data name="Theme_Light" xml:space="preserve"><value>浅色</value></data>
+  <data name="Theme_Dark" xml:space="preserve"><value>深色</value></data>
+  <data name="Label_CopyToClipboard" xml:space="preserve"><value>复制到剪贴板</value></data>
+  <data name="Label_GenerateShareKey" xml:space="preserve"><value>生成分享密钥</value></data>
+  <data name="Label_PasswordProtect" xml:space="preserve"><value>密码保护</value></data>
+  <data name="Label_ShareKeyGenerated" xml:space="preserve"><value>已生成分享密钥：</value></data>
+  <data name="Label_Sharing" xml:space="preserve"><value>正在分享：</value></data>
+  <data name="Placeholder_EnterPassword" xml:space="preserve"><value>输入密码（可选）</value></data>
+  <data name="State_Generating" xml:space="preserve"><value>生成中...</value></data>
+  <data name="Title_ShareFileGroup" xml:space="preserve"><value>分享文件组</value></data>
+  <data name="UI_Tasks_NoActiveTasks" xml:space="preserve"><value>暂无活动任务</value></data>
+  <data name="UI_Tasks_NoCompletedTasks" xml:space="preserve"><value>暂无已完成任务</value></data>
+  <data name="UI_Settings_AutoRestartTasks" xml:space="preserve"><value>启动时自动重启未完成任务</value></data>
+  <data name="UI_Settings_AutoRestartTasksDesc" xml:space="preserve"><value>应用启动时恢复未完成的下载/上传任务</value></data>
+  <data name="UI_About_FreeNotice" xml:space="preserve"><value>免费软件 — 禁止售卖</value></data>
+  <data name="UI_About_FreeNoticeBody" xml:space="preserve"><value>本软件完全免费，仅供个人非商业用途。严禁任何形式的商业使用、转售或盈利。</value></data>
+</root>

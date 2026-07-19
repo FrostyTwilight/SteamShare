@@ -1,0 +1,130 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:SteamShare.UI.ViewModels"
+             xmlns:core="clr-namespace:SteamShare.Core.Models;assembly=SteamShare.Core"
+             xmlns:ext="clr-namespace:SteamShare.UI.Converters"
+             x:Class="SteamShare.UI.Views.DownloadedView"
+             x:DataType="vm:DownloadedViewModel"
+             x:Name="Root">
+
+    <Grid RowDefinitions="Auto,*" Margin="16">
+        <!-- ── Header ── -->
+        <Border Grid.Row="0"
+                Padding="8,12"
+                Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}"
+                CornerRadius="8,8,0,0">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <ProgressBar IsIndeterminate="True"
+                             IsVisible="{Binding IsLoading}"
+                             Width="24"
+                             Height="24"
+                             VerticalAlignment="Center" />
+                <Button Content="{ext:Localize Label_Refresh}"
+                        Padding="16,8"
+                        Command="{Binding RefreshCommand}"
+                        IsEnabled="{Binding !IsLoading}" />
+                <TextBlock Text="{ext:Localize UI_Downloaded_Header}"
+                           FontWeight="SemiBold"
+                           FontSize="14"
+                           VerticalAlignment="Center"
+                           Margin="16,0,0,0" />
+            </StackPanel>
+        </Border>
+
+        <!-- ── Downloaded List ── -->
+        <Border Grid.Row="1"
+                Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                CornerRadius="0,0,8,8">
+            <Grid>
+                <!-- Loading overlay -->
+                <ProgressBar IsIndeterminate="True"
+                             IsVisible="{Binding IsLoading}"
+                             Width="48"
+                             Height="48"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center" />
+
+                <ScrollViewer IsVisible="{Binding !IsLoading}">
+                    <ItemsControl ItemsSource="{Binding DownloadedGroups}"
+                                  Margin="8">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="core:FileGroupTrackingEntry">
+                                <Border Padding="12"
+                                        Margin="0,2"
+                                        Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}"
+                                        CornerRadius="6">
+                                    <Grid ColumnDefinitions="*,Auto,Auto,Auto,Auto"
+                                          RowDefinitions="Auto,Auto,Auto">
+                                        <!-- Name -->
+                                        <TextBlock Grid.Row="0"
+                                                   Grid.Column="0"
+                                                   Grid.ColumnSpan="3"
+                                                   Text="{Binding CachedName}"
+                                                   FontWeight="SemiBold"
+                                                   FontSize="13"
+                                                   TextTrimming="CharacterEllipsis" />
+
+                                        <!-- Local Path -->
+                                        <TextBlock Grid.Row="1"
+                                                   Grid.Column="0"
+                                                   Grid.ColumnSpan="3"
+                                                   Text="{Binding LocalPath}"
+                                                   FontSize="11"
+                                                   Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                                                   TextTrimming="CharacterEllipsis"
+                                                   Margin="0,2,0,0" />
+
+                                        <!-- Synced date -->
+                                        <TextBlock Grid.Row="2"
+                                                   Grid.Column="0"
+                                                   Text="{Binding LastSyncedAt, StringFormat='{}{0:yyyy-MM-dd HH:mm}'}"
+                                                   FontSize="11"
+                                                   Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                                                   VerticalAlignment="Center" />
+
+                                        <!-- Action buttons -->
+                                        <StackPanel Grid.Row="0"
+                                                    Grid.Column="1"
+                                                    Grid.RowSpan="3"
+                                                    Orientation="Horizontal"
+                                                    Spacing="4"
+                                                    VerticalAlignment="Center">
+                                            <Button Content="{ext:Localize Label_Verify}"
+                                                    Padding="8,4"
+                                                    FontSize="12"
+                                                    Command="{Binding #Root.DataContext.VerifyCommand}"
+                                                    CommandParameter="{Binding}"
+                                                    IsEnabled="{Binding !#Root.DataContext.IsLoading}" />
+                                            <Button Content="{ext:Localize Label_DeleteLocal}"
+                                                    Padding="8,4"
+                                                    FontSize="12"
+                                                    Foreground="{DynamicResource SystemControlForegroundAccentBrush}"
+                                                    Command="{Binding #Root.DataContext.DeleteLocalCommand}"
+                                                    CommandParameter="{Binding}"
+                                                    IsEnabled="{Binding !#Root.DataContext.IsLoading}" />
+                                            <Button Content="{ext:Localize Label_OpenFolder}"
+                                                    Padding="8,4"
+                                                    FontSize="12"
+                                                    Command="{Binding #Root.DataContext.OpenFolderCommand}"
+                                                    CommandParameter="{Binding}"
+                                                    IsEnabled="{Binding !#Root.DataContext.IsLoading}" />
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+
+                <!-- Empty state -->
+                <TextBlock Text="{ext:Localize UI_Downloaded_EmptyState}"
+                           IsVisible="{Binding !DownloadedGroups.Count}"
+                           Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           TextWrapping="Wrap"
+                           Margin="16" />
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

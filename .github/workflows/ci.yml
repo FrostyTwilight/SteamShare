@@ -1,0 +1,146 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+  id-token: write
+  attestations: write
+
+jobs:
+  compile:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        configuration: [Debug, Release]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '11.0.x'
+      - shell: pwsh
+        run: |
+          ./build.ps1 Compile --configuration ${{ matrix.configuration }}
+
+  test:
+    needs: compile
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '11.0.x'
+      - shell: pwsh
+        run: ./build.ps1 Test
+        env:
+          STEAMSHARE_TEST_MODE: dummy
+
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '11.0.x'
+      - shell: pwsh
+        run: ./build.ps1 Format
+
+  pack:
+    needs: [compile, test]
+    strategy:
+      matrix:
+        include:
+          - rid: win-x64
+            os: windows-latest
+          - rid: linux-x64
+            os: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '11.0.x'
+      - shell: pwsh
+        run: |
+          ./build.ps1 -- Pack --rids ${{ matrix.rid }}
+
+      - name: Zip release artifacts
+        shell: pwsh
+        run: |
+          Set-Location publish/out
+          Get-ChildItem -Directory | ForEach-Object {
+              Compress-Archive -Path $_.Name -DestinationPath "$($_.Name).zip"
+              Write-Output "Created $($_.Name).zip"
+          }
+
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@v4
+        with:
+          subject-path: publish/out/*.zip
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: release-${{ matrix.rid }}
+          path: publish/out/*.zip
+
+  release:
+    needs: [pack, format]
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '11.0.x'
+
+      - name: Restore dotnet tools
+        shell: pwsh
+        run: dotnet tool restore
+
+      - name: Append Downloads table to changelog
+        shell: pwsh
+        run: |
+          @"
+          ## Downloads
+
+          | Variant | Windows | Linux |
+          |---------|---------|-------|
+          | CLI (self-contained) | cli-sc-win-x64.zip | cli-sc-linux-x64.zip |
+          | CLI (framework-dep.) | cli-fd-win-x64.zip | cli-fd-linux-x64.zip |
+          | GUI (self-contained) | gui-sc-win-x64.zip | gui-sc-linux-x64.zip |
+          | GUI (framework-dep.) | gui-fd-win-x64.zip | gui-fd-linux-x64.zip |
+          | GUI+CLI (self-contained) | combined-sc-win-x64.zip | combined-sc-linux-x64.zip |
+          | GUI+CLI (framework-dep.) | combined-fd-win-x64.zip | combined-fd-linux-x64.zip |
+
+          ---
+          > ⚠️ **Disclaimer**: SteamShare is NOT affiliated with Valve Corporation. Use at your own risk. Downloaded files may contain viruses — scan before use.
+          "@ | Add-Content -Path CHANGELOG.md
+          Get-Content CHANGELOG.md
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v8
+        with:
+          pattern: release-*
+          merge-multiple: false
+          path: artifacts/
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v3
+        with:
+          name: ${{ github.ref_name }}
+          body: See [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/${{ github.ref_name }}/CHANGELOG.md)
+          files: artifacts/**/*.zip
+          draft: false
+          prerelease: false

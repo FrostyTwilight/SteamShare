@@ -1,0 +1,29 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:SteamShare.UI.ViewModels"
+             xmlns:views="clr-namespace:SteamShare.UI.Views"
+             x:Class="SteamShare.UI.App"
+             RequestedThemeVariant="Default">
+    <Application.Styles>
+        <FluentTheme />
+    </Application.Styles>
+
+    <Application.DataTemplates>
+        <!-- ViewModel → View mapping via DataTemplate resolution -->
+        <DataTemplate x:DataType="vm:TasksViewModel">
+            <views:TasksView />
+        </DataTemplate>
+        <DataTemplate x:DataType="vm:MyFileGroupsViewModel">
+            <views:MyFileGroupsView />
+        </DataTemplate>
+        <DataTemplate x:DataType="vm:DownloadedViewModel">
+            <views:DownloadedView />
+        </DataTemplate>
+        <DataTemplate x:DataType="vm:SettingsViewModel">
+            <views:SettingsView />
+        </DataTemplate>
+        <DataTemplate x:DataType="vm:AboutViewModel">
+            <views:AboutView />
+        </DataTemplate>
+    </Application.DataTemplates>
+</Application>

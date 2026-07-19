@@ -1,0 +1,56 @@
+{
+  "changelog": {
+    "sections": [
+      {
+        "type": "feat",
+        "section": "🚀 Features",
+        "hidden": false
+      },
+      {
+        "type": "fix",
+        "section": "🐛 Fixes",
+        "hidden": false
+      },
+      {
+        "type": "build",
+        "section": "🔧 Build & CI",
+        "hidden": false
+      },
+      {
+        "type": "ci",
+        "section": "🔧 Build & CI",
+        "hidden": false
+      },
+      {
+        "type": "test",
+        "section": "✅ Tests",
+        "hidden": false
+      },
+      {
+        "type": "docs",
+        "section": "📖 Documentation",
+        "hidden": false
+      },
+      {
+        "type": "chore",
+        "section": "🏠 Maintenance",
+        "hidden": false
+      },
+      {
+        "type": "refactor",
+        "section": "🏠 Maintenance",
+        "hidden": false
+      },
+      {
+        "type": "style",
+        "section": "🏠 Maintenance",
+        "hidden": false
+      },
+      {
+        "type": "perf",
+        "section": "🏠 Maintenance",
+        "hidden": false
+      }
+    ]
+  }
+}

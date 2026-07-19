@@ -1,0 +1,64 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ext="clr-namespace:SteamShare.UI.Converters"
+        x:Class="SteamShare.UI.Views.ShareDialog"
+        x:CompileBindings="False"
+        Title="{ext:Localize Title_ShareFileGroup}"
+        Width="450"
+        Height="320"
+        WindowStartupLocation="CenterOwner"
+        CanResize="False">
+
+    <Grid RowDefinitions="Auto,*,Auto" Margin="16">
+        <!-- Header: File group name -->
+        <StackPanel Grid.Row="0" Spacing="4" Margin="0,0,0,12">
+            <TextBlock Text="{ext:Localize Label_Sharing}" FontWeight="Bold" FontSize="14" />
+            <TextBlock Name="GroupNameText" FontSize="13" TextWrapping="Wrap" />
+        </StackPanel>
+
+        <!-- Content area -->
+        <Grid Grid.Row="1" Name="ContentArea">
+            <!-- Input Panel (initially visible) -->
+            <StackPanel Name="InputPanel" Spacing="8">
+                <CheckBox Name="PasswordCheckBox"
+                          Content="{ext:Localize Label_PasswordProtect}" />
+                <TextBox Name="PasswordTextBox"
+                         PasswordChar="*"
+                          PlaceholderText="{ext:Localize Placeholder_EnterPassword}"
+                         IsVisible="False" />
+            </StackPanel>
+
+            <!-- Result Panel (shown after generation) -->
+            <StackPanel Name="ResultPanel" IsVisible="False" Spacing="8">
+                <TextBlock Text="{ext:Localize Label_ShareKeyGenerated}" FontWeight="SemiBold" />
+                <TextBox Name="KeyTextBox"
+                         IsReadOnly="True"
+                         TextWrapping="Wrap" />
+                <Button Name="CopyButton"
+                        Content="{ext:Localize Label_CopyToClipboard}"
+                        HorizontalAlignment="Right"
+                        Padding="12,6" />
+            </StackPanel>
+        </Grid>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Spacing="8"
+                    Margin="0,12,0,0">
+            <Button Name="CancelButton"
+                    Content="{ext:Localize Label_Cancel}"
+                    Width="80"
+                    IsVisible="True" />
+            <Button Name="ConfirmButton"
+                    Content="{ext:Localize Label_GenerateShareKey}"
+                    Width="140"
+                    IsVisible="True" />
+            <Button Name="CloseButton"
+                    Content="{ext:Localize Label_Close}"
+                    Width="80"
+                    IsVisible="False" />
+        </StackPanel>
+    </Grid>
+</Window>

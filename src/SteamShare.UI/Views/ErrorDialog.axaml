@@ -1,0 +1,27 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ext="clr-namespace:SteamShare.UI.Converters"
+        x:Class="SteamShare.UI.Views.ErrorDialog"
+        x:CompileBindings="False"
+        Title="{ext:Localize Label_Error}"
+        Width="500"
+        Height="300"
+        WindowStartupLocation="CenterOwner">
+    <Grid RowDefinitions="*,Auto" Margin="16">
+        <StackPanel>
+            <TextBlock Text="{ext:Localize UI_Error_Unexpected}"
+                       FontWeight="Bold"
+                       Margin="0,0,0,8" />
+            <TextBox Text="{Binding ErrorMessage}"
+                     IsReadOnly="True"
+                     TextWrapping="Wrap"
+                     AcceptsReturn="True"
+                     Height="150" />
+        </StackPanel>
+        <Button Grid.Row="1"
+                Content="{ext:Localize Label_Close}"
+                Click="OnCloseClick"
+                HorizontalAlignment="Right"
+                Margin="0,12,0,0" />
+    </Grid>
+</Window>

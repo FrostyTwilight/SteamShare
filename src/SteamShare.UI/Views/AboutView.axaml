@@ -1,0 +1,119 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:SteamShare.UI.ViewModels"
+             xmlns:ext="clr-namespace:SteamShare.UI.Converters"
+             x:Class="SteamShare.UI.Views.AboutView"
+             x:DataType="vm:AboutViewModel">
+
+    <ScrollViewer Margin="16">
+        <StackPanel Spacing="16" MaxWidth="600">
+            <!-- ── Free Software Notice ── -->
+            <Border Padding="20"
+                    Background="{DynamicResource SystemControlBackgroundAccentBrush}"
+                    CornerRadius="8">
+                <StackPanel Spacing="8">
+                    <TextBlock Text="{ext:Localize UI_About_FreeNotice}"
+                               FontSize="18"
+                               FontWeight="Bold"
+                               Foreground="{DynamicResource SystemControlForegroundAltHighBrush}"
+                               TextWrapping="Wrap" />
+                    <TextBlock Text="{ext:Localize UI_About_FreeNoticeBody}"
+                               FontSize="13"
+                               Foreground="{DynamicResource SystemControlForegroundAltHighBrush}"
+                               TextWrapping="Wrap" />
+                </StackPanel>
+            </Border>
+
+            <!-- ── App Info ── -->
+            <Border Padding="20"
+                    Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                    CornerRadius="8">
+                <StackPanel Spacing="8">
+                    <TextBlock Text="{Binding AppName}"
+                               FontSize="24"
+                               FontWeight="Bold"
+                               Foreground="{DynamicResource SystemControlForegroundAccentBrush}" />
+                    <TextBlock FontSize="14"
+                               Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}">
+                        <Run Text="{ext:Localize UI_About_VersionLabel}" />
+                        <Run Text="{Binding Version}"
+                             FontWeight="SemiBold" />
+                    </TextBlock>
+                    <TextBlock FontSize="12"
+                               Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}">
+                        <Run Text="{ext:Localize UI_About_LicenseLabel}" />
+                        <Run Text="{Binding License}"
+                             FontWeight="SemiBold" />
+                    </TextBlock>
+                    <TextBlock FontSize="12">
+                        <Run Text="{ext:Localize UI_About_RepoLabel}" />
+                        <Run Text="{Binding RepoUrl}"
+                             Foreground="{DynamicResource SystemControlForegroundAccentBrush}" />
+                    </TextBlock>
+                </StackPanel>
+            </Border>
+
+            <!-- ── Description ── -->
+            <Border Padding="20"
+                    Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                    CornerRadius="8">
+                <StackPanel Spacing="8">
+                    <TextBlock Text="{ext:Localize UI_About_Section}"
+                               FontWeight="SemiBold"
+                               FontSize="14" />
+                    <TextBlock Text="{ext:Localize UI_About_Description}"
+                               TextWrapping="Wrap"
+                               FontSize="13"
+                               Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" />
+                </StackPanel>
+            </Border>
+
+            <!-- ── Steam Disclaimer ── -->
+            <Border Padding="20"
+                    Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                    CornerRadius="8">
+                <StackPanel Spacing="8">
+                    <TextBlock Text="{ext:Localize UI_About_SteamDisclaimerHead}"
+                               FontWeight="SemiBold"
+                               FontSize="14" />
+                    <TextBlock Text="{Binding SteamDisclaimer}"
+                               TextWrapping="Wrap"
+                               FontSize="12"
+                               Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" />
+                </StackPanel>
+            </Border>
+
+            <!-- ── Dependencies ── -->
+            <Border Padding="20"
+                    Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                    CornerRadius="8">
+                <StackPanel Spacing="8">
+                    <TextBlock Text="{ext:Localize UI_About_DependenciesHead}"
+                               FontWeight="SemiBold"
+                               FontSize="14" />
+
+                    <ItemsControl ItemsSource="{Binding Dependencies}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="vm:DependencyInfo">
+                                <Grid ColumnDefinitions="*,Auto"
+                                      Margin="0,2">
+                                    <TextBlock Grid.Column="0"
+                                               Text="{Binding Name}"
+                                               FontSize="12"
+                                               TextTrimming="CharacterEllipsis" />
+                                    <TextBlock Grid.Column="1"
+                                               Text="{Binding Version}"
+                                               FontSize="12"
+                                               Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" />
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </Border>
+
+            <!-- Footer spacer -->
+            <TextBlock Height="32" />
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

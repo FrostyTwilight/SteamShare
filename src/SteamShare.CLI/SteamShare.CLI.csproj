@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>SteamShare.CLI</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Spectre.Console" VersionOverride="0.57.2" />
+    <PackageReference Include="Spectre.Console.Cli" VersionOverride="0.55.0" />
+    <PackageReference Include="Serilog.Extensions.Hosting" VersionOverride="10.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SteamShare.Core\SteamShare.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TrimmerRootAssembly Include="SteamShare.CLI" />
+  </ItemGroup>
+</Project>

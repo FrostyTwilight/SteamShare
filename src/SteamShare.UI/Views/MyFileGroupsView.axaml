@@ -1,0 +1,207 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:SteamShare.UI.ViewModels"
+             xmlns:core="clr-namespace:SteamShare.Core.Models;assembly=SteamShare.Core"
+             xmlns:ext="clr-namespace:SteamShare.UI.Converters"
+             x:Class="SteamShare.UI.Views.MyFileGroupsView"
+             x:DataType="vm:MyFileGroupsViewModel"
+              x:Name="Root">
+
+    <UserControl.Resources>
+        <ext:FileSizeConverter x:Key="FileSizeConverter" />
+    </UserControl.Resources>
+
+    <Grid RowDefinitions="Auto,Auto,Auto,*" Margin="16">
+        <!-- ── Disclaimer Info Bar ── -->
+        <Border Grid.Row="0"
+                Padding="8,6"
+                Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}"
+                BorderBrush="{DynamicResource SystemControlForegroundChromeDisabledLowBrush}"
+                BorderThickness="0,0,0,1"
+                CornerRadius="8,8,0,0"
+                Margin="0,0,0,4">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="6">
+                <TextBlock Text="&#x2139;"
+                           FontSize="14"
+                           VerticalAlignment="Center"
+                           Foreground="{DynamicResource SystemControlForegroundAccentBrush}" />
+                <TextBlock Text="{ext:Localize Disclaimer_ShareWarning}"
+                           TextWrapping="Wrap"
+                           FontSize="11"
+                           VerticalAlignment="Center"
+                           Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" />
+            </StackPanel>
+        </Border>
+
+        <!-- ── Toolbar ── -->
+        <Border Grid.Row="1"
+                Padding="8,12"
+                Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}"
+                CornerRadius="0">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <ProgressBar IsIndeterminate="True"
+                             IsVisible="{Binding IsLoading}"
+                             Width="24"
+                             Height="24"
+                             VerticalAlignment="Center"
+                             Margin="0,0,4,0" />
+                <Button Content="{ext:Localize Label_Upload}"
+                        Padding="16,8"
+                        Command="{Binding UploadCommand}"
+                        IsEnabled="{Binding !IsLoading}" />
+                <Button Content="{ext:Localize Label_Refresh}"
+                        Padding="16,8"
+                        Command="{Binding RefreshCommand}"
+                        IsEnabled="{Binding !IsLoading}" />
+                <TextBlock Text="{ext:Localize Label_MyFileGroups}"
+                           FontWeight="SemiBold"
+                           FontSize="14"
+                           VerticalAlignment="Center"
+                           Margin="16,0,0,0" />
+            </StackPanel>
+        </Border>
+
+        <!-- ── File Groups List ── -->
+        <Border Grid.Row="2"
+                Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                CornerRadius="0,0,8,8">
+            <Grid>
+                <!-- Loading overlay -->
+
+                <ScrollViewer>
+                    <ItemsControl ItemsSource="{Binding OwnedGroups}"
+                                  Margin="8">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="core:FileGroup">
+                                <Border Padding="12"
+                                        Margin="0,2"
+                                        Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}"
+                                        CornerRadius="6">
+                                    <Grid ColumnDefinitions="*,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+                                          RowDefinitions="Auto,Auto">
+                                        <!-- Row 0: Name + Folder Path -->
+                                        <TextBlock Grid.Row="0"
+                                                   Grid.Column="0"
+                                                   Text="{Binding Name}"
+                                                   FontWeight="SemiBold"
+                                                   FontSize="13"
+                                                   TextTrimming="CharacterEllipsis" />
+
+                                        <!-- Row 1: Folder path -->
+                                        <TextBlock Grid.Row="1"
+                                                   Grid.Column="0"
+                                                   Text="{Binding VirtualFolderPath}"
+                                                   FontSize="11"
+                                                   Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                                                   TextTrimming="CharacterEllipsis"
+                                                   Margin="0,2,0,0" />
+
+                                        <!-- Visibility Badge -->
+                                        <Border Grid.Row="0"
+                                                Grid.Column="1"
+                                                Grid.RowSpan="2"
+                                                Padding="6,2"
+                                                CornerRadius="4"
+                                                VerticalAlignment="Center"
+                                                Margin="4,0"
+                                                IsVisible="False"
+                                                Background="{DynamicResource SystemControlBackgroundNeutralBrush}"
+                                                >
+                                            <TextBlock Text="{Binding Visibility}"
+                                                       FontSize="10"
+                                                       FontWeight="SemiBold"
+                                                       Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}" />
+                                        </Border>
+
+                                        <!-- File count + size -->
+                                        <TextBlock Grid.Row="0"
+                                                   Grid.Column="2"
+                                                   Grid.RowSpan="2"
+                                                   VerticalAlignment="Center"
+                                                   FontSize="11"
+                                                   Margin="8,0"
+                                                   Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                                                   Text="{Binding FileCount, StringFormat={ext:Localize UI_FileCountFormat}}" />
+
+                                        <!-- Size -->
+                                        <TextBlock Grid.Row="0"
+                                                   Grid.Column="3"
+                                                   Grid.RowSpan="2"
+                                                   VerticalAlignment="Center"
+                                                   FontSize="11"
+                                                   Margin="8,0"
+                                                   Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                                                   Text="{Binding TotalSizeBytes, Converter={StaticResource FileSizeConverter}}" />
+
+                                        <!-- Downloads -->
+                                        <TextBlock Grid.Row="0"
+                                                   Grid.Column="4"
+                                                   Grid.RowSpan="2"
+                                                   VerticalAlignment="Center"
+                                                   FontSize="11"
+                                                   Margin="8,0"
+                                                   Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                                                   Text="{Binding DownloadCount, StringFormat='{}{0:N0}'}" />
+
+                                        <!-- Created date -->
+                                        <TextBlock Grid.Row="0"
+                                                   Grid.Column="5"
+                                                   Grid.RowSpan="2"
+                                                   VerticalAlignment="Center"
+                                                   FontSize="11"
+                                                   Margin="8,0"
+                                                   Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                                                   Text="{Binding CreatedAt, StringFormat='{}{0:yyyy-MM-dd}'}" />
+
+
+                                        <!-- Action buttons -->
+                                        <StackPanel Grid.Row="0"
+                                                    Grid.Column="6"
+                                                    Grid.RowSpan="2"
+                                                    Orientation="Horizontal"
+                                                    Spacing="4"
+                                                    VerticalAlignment="Center">
+                                            <Button Content="{ext:Localize Label_Share}"
+                                                    Padding="8,4"
+                                                    FontSize="12"
+                                                    Command="{Binding #Root.DataContext.ShareCommand}"
+                                                    CommandParameter="{Binding}"
+                                                    IsEnabled="{Binding !#Root.DataContext.IsLoading}" />
+                                            <Button Content="{ext:Localize Label_Rename}"
+                                                    Padding="8,4"
+                                                    FontSize="12"
+                                                    Command="{Binding #Root.DataContext.RenameCommand}"
+                                                    CommandParameter="{Binding}"
+                                                    IsEnabled="{Binding !#Root.DataContext.IsLoading}" />
+                                            <Button Content="{ext:Localize Label_Visibility}"
+                                                    Padding="8,4"
+                                                    FontSize="12"
+                                                    IsVisible="False"
+                                                    Command="{Binding #Root.DataContext.ChangeVisibilityCommand}"
+                                                    CommandParameter="{Binding}"
+                                                    IsEnabled="{Binding !#Root.DataContext.IsLoading}" />
+                                            <Button Content="{ext:Localize Label_Delete}"
+                                                    Padding="8,4"
+                                                    FontSize="12"
+                                                    Foreground="{DynamicResource SystemControlForegroundAccentBrush}"
+                                                    Command="{Binding #Root.DataContext.DeleteCommand}"
+                                                    CommandParameter="{Binding}"
+                                                    IsEnabled="{Binding !#Root.DataContext.IsLoading}" />
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+
+                <!-- Empty state -->
+                <TextBlock Text="{ext:Localize UI_FileGroups_EmptyState}"
+                           IsVisible="{Binding !OwnedGroups.Count}"
+                           Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center" />
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

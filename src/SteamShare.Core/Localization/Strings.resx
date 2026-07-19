@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms</value>
+  </resheader>
+  <data name="App_Name" xml:space="preserve">
+    <value>SteamShare</value>
+  </data>
+  <data name="Label_Upload" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="Label_Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="Label_Share" xml:space="preserve">
+    <value>Share</value>
+  </data>
+  <data name="Label_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Label_Rename" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="Label_Move" xml:space="preserve">
+    <value>Move</value>
+  </data>
+  <data name="Label_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Label_About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Label_Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Label_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Label_Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="Label_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Label_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Label_Theme" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="Label_Visibility" xml:space="preserve">
+    <value>Visibility</value>
+  </data>
+  <data name="Label_Downloads" xml:space="preserve">
+    <value>Downloads</value>
+  </data>
+  <data name="Label_Downloaded" xml:space="preserve">
+    <value>Downloaded</value>
+  </data>
+  <data name="Label_Dismiss" xml:space="preserve">
+    <value>Dismiss</value>
+  </data>
+  <data name="Label_OpenFolder" xml:space="preserve">
+    <value>Open Folder</value>
+  </data>
+  <data name="Label_Verify" xml:space="preserve">
+    <value>Verify</value>
+  </data>
+  <data name="Label_DeleteLocal" xml:space="preserve">
+    <value>Delete Local</value>
+  </data>
+  <data name="Label_Browse" xml:space="preserve">
+    <value>Browse...</value>
+  </data>
+  <data name="Label_SaveSettings" xml:space="preserve">
+    <value>Save Settings</value>
+  </data>
+  <data name="Label_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Label_Expand" xml:space="preserve">
+    <value>Expand</value>
+  </data>
+  <data name="Label_OpenLogFile" xml:space="preserve">
+    <value>Open Log File</value>
+  </data>
+  <data name="Label_MyFileGroups" xml:space="preserve">
+    <value>My File Groups</value>
+  </data>
+  <data name="Label_DownloadedGroups" xml:space="preserve">
+    <value>Downloaded Groups</value>
+  </data>
+  <data name="Label_NoItems" xml:space="preserve">
+    <value>No items to display</value>
+  </data>
+  <data name="Visibility_Private" xml:space="preserve">
+    <value>Private</value>
+  </data>
+  <data name="Visibility_Unlisted" xml:space="preserve">
+    <value>Unlisted</value>
+  </data>
+  <data name="Visibility_Public" xml:space="preserve">
+    <value>Public</value>
+  </data>
+  <data name="Error_SteamNotRunning" xml:space="preserve">
+    <value>Steam client is not running. Please start Steam and try again.</value>
+  </data>
+  <data name="Error_WorkshopUpload" xml:space="preserve">
+    <value>Failed to upload to Steam Workshop. Check your connection and try again.</value>
+  </data>
+  <data name="Error_WorkshopDownload" xml:space="preserve">
+    <value>Failed to download from Steam Workshop. Check your connection and try again.</value>
+  </data>
+  <data name="Error_ShareKeyParse" xml:space="preserve">
+    <value>The share key is invalid or malformed.</value>
+  </data>
+  <data name="Error_ShareKeyCrypto" xml:space="preserve">
+    <value>Failed to decrypt the share key. The password may be incorrect.</value>
+  </data>
+  <data name="Error_FileGroupNotFound" xml:space="preserve">
+    <value>The requested file group was not found.</value>
+  </data>
+  <data name="Error_ConfigLoad" xml:space="preserve">
+    <value>Failed to load configuration. Using default settings.</value>
+  </data>
+  <data name="Error_MetadataOverflow" xml:space="preserve">
+    <value>File group metadata is too large for Steam Workshop storage.</value>
+  </data>
+  <data name="Error_UnknownGeneric" xml:space="preserve">
+    <value>An unknown error occurred.</value>
+  </data>
+  <data name="Error_SteamNotConnected" xml:space="preserve">
+    <value>Steam not connected. Running in offline mode.</value>
+  </data>
+  <data name="Error_SteamInitFailed" xml:space="preserve">
+    <value>Steam initialization failed: {0}</value>
+  </data>
+  <data name="Prompt_DeleteConfirmation" xml:space="preserve">
+    <value>Are you sure you want to delete this file group? This action cannot be undone.</value>
+  </data>
+  <data name="Prompt_VisibilityChange" xml:space="preserve">
+    <value>You are about to change the visibility to {0}. This will make the file group {1}.</value>
+  </data>
+  <data name="Prompt_EnterShareKey" xml:space="preserve">
+    <value>Please enter a share key.</value>
+  </data>
+  <data name="Prompt_EnterNewName" xml:space="preserve">
+    <value>Enter a new name:</value>
+  </data>
+  <data name="Prompt_DeleteFileGroupConfirmation" xml:space="preserve">
+    <value>Are you sure you want to delete "{0}"? This action cannot be undone.</value>
+  </data>
+  <data name="Prompt_DeleteLocalConfirmation" xml:space="preserve">
+    <value>Delete the local copy of "{0}"? The workshop item will not be affected.</value>
+  </data>
+  <data name="Prompt_VisibilityPublicConfirm" xml:space="preserve">
+    <value>You are about to make "{0}" PUBLIC. Anyone can find and subscribe to it. Continue?</value>
+  </data>
+  <data name="Title_DeleteFileGroup" xml:space="preserve">
+    <value>Delete File Group</value>
+  </data>
+  <data name="Title_DeleteLocalFile" xml:space="preserve">
+    <value>Delete Local File</value>
+  </data>
+  <data name="Title_ChangeVisibility" xml:space="preserve">
+    <value>Change Visibility</value>
+  </data>
+  <data name="Title_Rename" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="UI_FileCountFormat" xml:space="preserve">
+    <value>{0} files</value>
+  </data>
+  <data name="Disclaimer_Main" xml:space="preserve">
+    <value>WARNING: Downloaded files may contain viruses or malicious content. Always scan files before opening. SteamShare is not affiliated with Valve or Steam.</value>
+  </data>
+  <data name="Disclaimer_Downloads" xml:space="preserve">
+    <value>CAUTION: Files downloaded from untrusted sources may contain malware. Scan all files before use.</value>
+  </data>
+  <data name="State_Downloading" xml:space="preserve">
+    <value>Downloading...</value>
+  </data>
+  <data name="State_Uploading" xml:space="preserve">
+    <value>Uploading...</value>
+  </data>
+  <data name="State_Completed" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="State_Starting" xml:space="preserve">
+    <value>Starting...</value>
+  </data>
+  <data name="State_Cancelled" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
+  <data name="State_DownloadingProgress" xml:space="preserve">
+    <value>Downloading — {0} / {1}</value>
+  </data>
+  <data name="Disclaimer_ShareWarning" xml:space="preserve">
+    <value>Always ensure you have the right to share uploaded content. Misuse may violate Steam's Terms of Service.</value>
+  </data>
+  <data name="Disclaimer_Sidebar" xml:space="preserve">
+    <value>This software uses Steam Workshop to share files. Only share content you have the right to distribute.</value>
+  </data>
+  <data name="UI_Download_EnterShareKey" xml:space="preserve">
+    <value>Enter Share Key</value>
+  </data>
+  <data name="UI_Download_ActiveDownloads" xml:space="preserve">
+    <value>Active Downloads</value>
+  </data>
+  <data name="UI_Download_NoActiveDownloads" xml:space="preserve">
+    <value>No active downloads.</value>
+  </data>
+  <data name="UI_Download_CompletedDownloads" xml:space="preserve">
+    <value>Completed Downloads</value>
+  </data>
+  <data name="UI_Download_NoCompletedDownloads" xml:space="preserve">
+    <value>No completed downloads.</value>
+  </data>
+  <data name="UI_FileGroups_EmptyState" xml:space="preserve">
+    <value>No file groups found. Upload your first file group to get started.</value>
+  </data>
+  <data name="UI_Downloaded_Header" xml:space="preserve">
+    <value>Downloaded File Groups</value>
+  </data>
+  <data name="UI_Downloaded_EmptyState" xml:space="preserve">
+    <value>No downloaded file groups. Use the Download Manager to download shared content.</value>
+  </data>
+  <data name="UI_Settings_Header" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="UI_Settings_LanguageDesc" xml:space="preserve">
+    <value>Select the UI language.</value>
+  </data>
+  <data name="UI_Settings_ThemeDesc" xml:space="preserve">
+    <value>Changes are applied immediately on save.</value>
+  </data>
+  <data name="UI_Settings_DownloadDir" xml:space="preserve">
+    <value>Download Directory</value>
+  </data>
+  <data name="UI_Settings_DownloadDirDesc" xml:space="preserve">
+    <value>Files are saved here when downloading from share keys.</value>
+  </data>
+  <data name="UI_Settings_DownloadDirPlaceholder" xml:space="preserve">
+    <value>Default: ~/Downloads/SteamShare</value>
+  </data>
+  <data name="UI_Settings_AutoTrackInterval" xml:space="preserve">
+    <value>Auto-Track Interval (seconds)</value>
+  </data>
+  <data name="UI_Settings_AutoTrackIntervalDesc" xml:space="preserve">
+    <value>How often to check for updates to tracked file groups.</value>
+  </data>
+  <data name="UI_Settings_LogsSection" xml:space="preserve">
+    <value>Logs</value>
+  </data>
+  <data name="UI_Settings_LogsDesc" xml:space="preserve">
+    <value>View application log files for troubleshooting.</value>
+  </data>
+  <data name="UI_About_Section" xml:space="preserve">
+    <value>About SteamShare</value>
+  </data>
+  <data name="UI_About_Description" xml:space="preserve">
+    <value>SteamShare is a tool that uses Steam Workshop to share file groups. Create collections of files, upload them to the Steam Workshop, and share them with friends using secure share keys.</value>
+  </data>
+  <data name="UI_About_VersionLabel" xml:space="preserve">
+    <value>Version </value>
+  </data>
+  <data name="UI_About_LicenseLabel" xml:space="preserve">
+    <value>License: </value>
+  </data>
+  <data name="UI_About_RepoLabel" xml:space="preserve">
+    <value>Repository: </value>
+  </data>
+  <data name="UI_About_SteamDisclaimerHead" xml:space="preserve">
+    <value>Steam Disclaimer</value>
+  </data>
+  <data name="UI_About_SteamDisclaimerBody" xml:space="preserve">
+    <value>Steam is a trademark of Valve Corporation. SteamShare is not affiliated with, endorsed by, or sponsored by Valve Corporation. All trademarks are the property of their respective owners.</value>
+  </data>
+  <data name="UI_About_DependenciesHead" xml:space="preserve">
+    <value>Dependencies</value>
+  </data>
+  <data name="UI_Error_Unexpected" xml:space="preserve">
+    <value>An unexpected error occurred:</value>
+  </data>
+  <data name="Label_Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Label_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Label_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Prompt_EnterValue" xml:space="preserve">
+    <value>Enter value...</value>
+  </data>
+  <data name="Notification_SettingsSaved" xml:space="preserve">
+    <value>Settings saved successfully.</value>
+  </data>
+  <data name="Notification_SettingsSaveError" xml:space="preserve">
+    <value>Failed to save settings: {0}</value>
+  </data>
+  <data name="Notification_DownloadComplete" xml:space="preserve">
+    <value>Download complete</value>
+  </data>
+  <data name="Notification_DownloadCancelled" xml:space="preserve">
+    <value>Download cancelled.</value>
+  </data>
+  <data name="Notification_DownloadFailed" xml:space="preserve">
+    <value>Download failed: {0}</value>
+  </data>
+  <data name="Notification_RefreshFailed" xml:space="preserve">
+    <value>Failed to refresh: {0}</value>
+  </data>
+  <data name="Notification_Uploaded" xml:space="preserve">
+    <value>Uploaded: {0}</value>
+  </data>
+  <data name="Notification_UploadStarted" xml:space="preserve">
+    <value>Upload started: {0}</value>
+  </data>
+  <data name="Notification_UploadFailed" xml:space="preserve">
+    <value>Upload failed: {0}</value>
+  </data>
+  <data name="Notification_ShareKeyGenerated" xml:space="preserve">
+    <value>Share key: {0}</value>
+  </data>
+  <data name="Notification_ShareKeyGenerateFailed" xml:space="preserve">
+    <value>Failed to generate share key: {0}</value>
+  </data>
+  <data name="Notification_Deleted" xml:space="preserve">
+    <value>Deleted: {0}</value>
+  </data>
+  <data name="Notification_DeleteFailed" xml:space="preserve">
+    <value>Delete failed: {0}</value>
+  </data>
+  <data name="Notification_Renamed" xml:space="preserve">
+    <value>Renamed to: {0}</value>
+  </data>
+  <data name="Notification_RenameFailed" xml:space="preserve">
+    <value>Rename failed: {0}</value>
+  </data>
+  <data name="Notification_VisibilityChanged" xml:space="preserve">
+    <value>Visibility changed: {0}</value>
+  </data>
+  <data name="Notification_VisibilityChangeFailed" xml:space="preserve">
+    <value>Visibility change failed: {0}</value>
+  </data>
+  <data name="Notification_VerifyPassed" xml:space="preserve">
+    <value>Verification passed: {0}</value>
+  </data>
+  <data name="Notification_VerifyFailed" xml:space="preserve">
+    <value>Verification failed: {0}</value>
+  </data>
+  <data name="Notification_VerifyError" xml:space="preserve">
+    <value>Verification error: {0}</value>
+  </data>
+  <data name="Notification_LocalDeleted" xml:space="preserve">
+    <value>Deleted local copy: {0}</value>
+  </data>
+  <data name="Status_SteamConnected" xml:space="preserve">
+    <value>Steam: Connected</value>
+  </data>
+  <data name="Status_SteamDisconnected" xml:space="preserve">
+    <value>Steam: Disconnected</value>
+  </data>
+  <data name="Error_SteamNotLoggedIn" xml:space="preserve">
+    <value>Steam is running but you are not logged in. Please log into Steam and try again.</value>
+  </data>
+  <data name="Error_NativeDllNotFound" xml:space="preserve">
+    <value>Steam native DLL not found. Ensure Steam is installed and steam_api64.dll is accessible.</value>
+  </data>
+  <data name="Error_PlatformMismatch" xml:space="preserve">
+    <value>Steam API platform mismatch. The Steam client version may be incompatible.</value>
+  </data>
+  <data name="Error_Unknown" xml:space="preserve">
+    <value>An unknown error occurred during Steam initialization.</value>
+  </data>
+  <data name="CLI_Disclaimer_Title" xml:space="preserve">
+    <value>⚠ DISCLAIMER</value>
+  </data>
+  <data name="CLI_Disclaimer_Line1" xml:space="preserve">
+    <value>SteamShare uses the Steam API for file sharing between users.</value>
+  </data>
+  <data name="CLI_Disclaimer_Line2" xml:space="preserve">
+    <value>By using this software, you acknowledge:</value>
+  </data>
+  <data name="CLI_Disclaimer_Bullet1" xml:space="preserve">
+    <value>Files are transmitted via Steam Workshop (public by default)</value>
+  </data>
+  <data name="CLI_Disclaimer_Bullet2" xml:space="preserve">
+    <value>You are responsible for the content you share</value>
+  </data>
+  <data name="CLI_Disclaimer_Bullet3" xml:space="preserve">
+    <value>This software is provided 'as is' without warranty</value>
+  </data>
+  <data name="CLI_Disclaimer_SuppressHint" xml:space="preserve">
+    <value>Pass --accept-disclaimer to suppress this message.</value>
+  </data>
+  <data name="UI_Settings_LogDesc" xml:space="preserve">
+    <value>View SteamShare application logs for debugging.</value>
+  </data>
+  <data name="UI_About_SteamDisclaimer" xml:space="preserve">
+    <value>Steam Disclaimer</value>
+  </data>
+  <data name="UI_About_Dependencies" xml:space="preserve">
+    <value>Dependencies</value>
+  </data>
+  <data name="UI_Sidebar_Disclaimer" xml:space="preserve">
+    <value>This software uses Steam Workshop to share files. Only share content you have the right to distribute.</value>
+  </data>
+  <data name="State_DownloadingSimple" xml:space="preserve">
+    <value>Downloading — {0}</value>
+  </data>
+  <data name="Notification_InvalidName" xml:space="preserve">
+    <value>Name contains invalid characters (\, /, etc.).</value>
+  </data>
+  <data name="UI_Download_PasswordOptional" xml:space="preserve">
+    <value>Password (if encrypted)</value>
+  </data>
+  <data name="UI_Download_ShareKeyWatermark" xml:space="preserve">
+    <value>Enter share key (sshare+...)</value>
+  </data>
+  <data name="Label_Size" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="Label_Tasks" xml:space="preserve">
+    <value>Tasks</value>
+  </data>
+  <data name="Label_ActiveTasks" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Label_CompletedTasks" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="Category_Upload" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="Category_Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="Category_Share" xml:space="preserve">
+    <value>Share</value>
+  </data>
+  <data name="Category_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Category_General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="TaskStatus_Pending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="TaskStatus_Running" xml:space="preserve">
+    <value>Running</value>
+  </data>
+  <data name="TaskStatus_Completed" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="TaskStatus_Failed" xml:space="preserve">
+    <value>Failed</value>
+  </data>
+  <data name="TaskStatus_Cancelled" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
+  <data name="Label_UnknownVersion" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="Language_enUS" xml:space="preserve">
+    <value>English (US)</value>
+  </data>
+  <data name="Language_zhCN" xml:space="preserve">
+    <value>中文(简体)</value>
+  </data>
+  <data name="Theme_System" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="Theme_Light" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="Theme_Dark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="Label_CopyToClipboard" xml:space="preserve">
+    <value>Copy to Clipboard</value>
+  </data>
+  <data name="Label_GenerateShareKey" xml:space="preserve">
+    <value>Generate Share Key</value>
+  </data>
+  <data name="Label_PasswordProtect" xml:space="preserve">
+    <value>Password protect</value>
+  </data>
+  <data name="Label_ShareKeyGenerated" xml:space="preserve">
+    <value>Share key generated:</value>
+  </data>
+  <data name="Label_Sharing" xml:space="preserve">
+    <value>Sharing:</value>
+  </data>
+  <data name="Placeholder_EnterPassword" xml:space="preserve">
+    <value>Enter password (optional)</value>
+  </data>
+  <data name="State_Generating" xml:space="preserve">
+    <value>Generating...</value>
+  </data>
+  <data name="Title_ShareFileGroup" xml:space="preserve">
+    <value>Share File Group</value>
+  </data>
+  <data name="UI_Tasks_NoActiveTasks" xml:space="preserve">
+    <value>No active tasks</value>
+  </data>
+  <data name="UI_Tasks_NoCompletedTasks" xml:space="preserve">
+    <value>No completed tasks</value>
+  </data>
+  <data name="UI_Settings_AutoRestartTasks" xml:space="preserve">
+    <value>Auto-restart pending tasks on startup</value>
+  </data>
+  <data name="UI_Settings_AutoRestartTasksDesc" xml:space="preserve">
+    <value>Resume incomplete downloads/uploads when the app starts</value>
+  </data>
+  <data name="UI_About_FreeNotice" xml:space="preserve">
+    <value>FREE SOFTWARE — NOT FOR SALE</value>
+  </data>
+  <data name="UI_About_FreeNoticeBody" xml:space="preserve">
+    <value>This software is 100% free for personal, non-commercial use. Commercial use, resale, or monetization in any form is strictly prohibited.</value>
+  </data>
+</root>

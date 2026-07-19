@@ -1,0 +1,193 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:SteamShare.UI.ViewModels"
+             xmlns:ext="clr-namespace:SteamShare.UI.Converters"
+             x:Class="SteamShare.UI.Views.SettingsView"
+             x:DataType="vm:SettingsViewModel">
+
+    <ScrollViewer Margin="16">
+        <StackPanel Spacing="16" MaxWidth="600">
+            <!-- ── Section Header ── -->
+            <TextBlock Text="{ext:Localize UI_Settings_Header}"
+                       FontSize="20"
+                       FontWeight="SemiBold"
+                       Margin="0,0,0,8" />
+
+            <!-- ── Language ── -->
+            <Border Padding="16"
+                    Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                    CornerRadius="8">
+                <Grid ColumnDefinitions="*,Auto"
+                      RowDefinitions="Auto,Auto">
+                    <TextBlock Grid.Row="0"
+                               Grid.Column="0"
+                               Text="{ext:Localize Label_Language}"
+                               FontWeight="SemiBold" />
+                    <TextBlock Grid.Row="1"
+                               Grid.Column="0"
+                               Text="{ext:Localize UI_Settings_LanguageDesc}"
+                               FontSize="12"
+                               Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                               Margin="0,2,0,0" />
+                    <ComboBox Grid.Row="0"
+                              Grid.Column="1"
+                              Grid.RowSpan="2"
+                              VerticalAlignment="Center"
+                              MinWidth="120"
+                              ItemsSource="{Binding Languages}"
+                              DisplayMemberBinding="{Binding Display}"
+                              SelectedValue="{Binding Language}"
+                              SelectedValueBinding="{Binding Value}" />
+                </Grid>
+            </Border>
+
+            <!-- ── Theme ── -->
+            <Border Padding="16"
+                    Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                    CornerRadius="8">
+                <Grid ColumnDefinitions="*,Auto"
+                      RowDefinitions="Auto,Auto">
+                    <TextBlock Grid.Row="0"
+                               Grid.Column="0"
+                               Text="{ext:Localize Label_Theme}"
+                               FontWeight="SemiBold" />
+                    <TextBlock Grid.Row="1"
+                               Grid.Column="0"
+                               Text="{ext:Localize UI_Settings_ThemeDesc}"
+                               FontSize="12"
+                               Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                               Margin="0,2,0,0" />
+                    <ComboBox Grid.Row="0"
+                              Grid.Column="1"
+                              Grid.RowSpan="2"
+                              VerticalAlignment="Center"
+                              MinWidth="120"
+                              ItemsSource="{Binding Themes}"
+                              DisplayMemberBinding="{Binding Display}"
+                              SelectedValue="{Binding Theme}"
+                              SelectedValueBinding="{Binding Value}" />
+                </Grid>
+            </Border>
+
+            <!-- ── Download Directory ── -->
+            <Border Padding="16"
+                    Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                    CornerRadius="8">
+                <Grid ColumnDefinitions="*,Auto"
+                      RowDefinitions="Auto,Auto,Auto">
+                    <TextBlock Grid.Row="0"
+                               Grid.Column="0"
+                               Text="{ext:Localize UI_Settings_DownloadDir}"
+                               FontWeight="SemiBold" />
+                    <TextBlock Grid.Row="1"
+                               Grid.Column="0"
+                               Text="{ext:Localize UI_Settings_DownloadDirDesc}"
+                               FontSize="12"
+                               Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                               Margin="0,2,0,0" />
+                    <Grid Grid.Row="2"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="2"
+                          ColumnDefinitions="*,Auto"
+                          Margin="0,8,0,0">
+                        <TextBox Grid.Column="0"
+                                 Text="{Binding DownloadDirectory}"
+                                  PlaceholderText="{ext:Localize UI_Settings_DownloadDirPlaceholder}"
+                                 IsReadOnly="True" />
+                        <Button Grid.Column="1"
+                                Content="{ext:Localize Label_Browse}"
+                                Margin="8,0,0,0"
+                                Padding="12,8"
+                                Command="{Binding BrowseDownloadDirectoryCommand}" />
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <!-- ── Auto Track Interval ── -->
+            <Border Padding="16"
+                    Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                    CornerRadius="8">
+                <Grid ColumnDefinitions="*,Auto"
+                      RowDefinitions="Auto,Auto">
+                    <TextBlock Grid.Row="0"
+                               Grid.Column="0"
+                               Text="{ext:Localize UI_Settings_AutoTrackInterval}"
+                               FontWeight="SemiBold" />
+                    <TextBlock Grid.Row="1"
+                               Grid.Column="0"
+                               Text="{ext:Localize UI_Settings_AutoTrackIntervalDesc}"
+                               FontSize="12"
+                               Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                               Margin="0,2,0,0" />
+                    <NumericUpDown Grid.Row="0"
+                                   Grid.Column="1"
+                                   Grid.RowSpan="2"
+                                   VerticalAlignment="Center"
+                                   MinWidth="100"
+                                   Minimum="10"
+                                   Maximum="3600"
+                                   Increment="10"
+                                   Value="{Binding AutoTrackInterval}" />
+                </Grid>
+            </Border>
+
+            <!-- ── Auto-Restart Pending Tasks ── -->
+            <Border Padding="16"
+                    Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                    CornerRadius="8">
+                <Grid ColumnDefinitions="*,Auto"
+                      RowDefinitions="Auto,Auto">
+                    <TextBlock Grid.Row="0"
+                               Grid.Column="0"
+                               Text="{ext:Localize UI_Settings_AutoRestartTasks}"
+                               FontWeight="SemiBold" />
+                    <TextBlock Grid.Row="1"
+                               Grid.Column="0"
+                               Text="{ext:Localize UI_Settings_AutoRestartTasksDesc}"
+                               FontSize="12"
+                               Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                               Margin="0,2,0,0" />
+                    <CheckBox Grid.Row="0"
+                              Grid.Column="1"
+                              Grid.RowSpan="2"
+                              VerticalAlignment="Center"
+                              IsChecked="{Binding AutoRestartPendingTasks}" />
+                </Grid>
+            </Border>
+
+            <!-- ── Save Button ── -->
+            <Button Content="{ext:Localize Label_SaveSettings}"
+                    HorizontalAlignment="Right"
+                    Padding="24,12"
+                    FontSize="14"
+                    IsEnabled="{Binding !IsSaving}"
+                    Command="{Binding SaveCommand}" />
+
+            <!-- ── Logs ── -->
+            <Border Padding="16"
+                    Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}"
+                    CornerRadius="8">
+                <Grid ColumnDefinitions="*,Auto"
+                      RowDefinitions="Auto,Auto">
+                    <TextBlock Grid.Row="0"
+                               Grid.Column="0"
+                               Text="{ext:Localize UI_Settings_LogsSection}"
+                               FontWeight="SemiBold" />
+                    <TextBlock Grid.Row="1"
+                               Grid.Column="0"
+                               Text="{ext:Localize UI_Settings_LogsDesc}"
+                               FontSize="12"
+                               Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                               Margin="0,2,0,0" />
+                    <Button Grid.Row="0"
+                            Grid.Column="1"
+                            Grid.RowSpan="2"
+                            Content="{ext:Localize Label_OpenLogFile}"
+                            Padding="16,8"
+                            VerticalAlignment="Center"
+                            Command="{Binding OpenLogFileCommand}" />
+                </Grid>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
