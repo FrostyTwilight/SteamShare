@@ -92,8 +92,8 @@
                           Margin="0,8,0,0">
                         <TextBox Grid.Column="0"
                                  Text="{Binding DownloadDirectory}"
-                                  PlaceholderText="{ext:Localize UI_Settings_DownloadDirPlaceholder}"
-                                 IsReadOnly="True" />
+                                 PlaceholderText="{ext:Localize UI_Settings_DownloadDirPlaceholder}"
+                                 IsReadOnly="False" />
                         <Button Grid.Column="1"
                                 Content="{ext:Localize Label_Browse}"
                                 Margin="8,0,0,0"
