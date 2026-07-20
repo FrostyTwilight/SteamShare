@@ -129,9 +129,9 @@ internal class Build : NukeBuild
                 foreach (var variant in new[] { "cli-sc", "cli-fd", "gui-sc", "gui-fd", "combined-sc", "combined-fd" })
                 {
                     var dir = PublishDirectory / $"{variant}-{rid}";
-                    (RootDirectory / "README.md").Copy(dir / "README.md");
-                    (RootDirectory / "README.zh.md").Copy(dir / "README.zh.md");
-                    (RootDirectory / "LICENSE").Copy(dir / "LICENSE");
+                    (RootDirectory / "README.en.md").Copy(dir / "README.en.md", ExistsPolicy.MergeAndOverwrite);
+                    (RootDirectory / "README.md").Copy(dir / "README.md", ExistsPolicy.MergeAndOverwrite);
+                    (RootDirectory / "LICENSE").Copy(dir / "LICENSE", ExistsPolicy.MergeAndOverwrite);
                 }
             }
         });

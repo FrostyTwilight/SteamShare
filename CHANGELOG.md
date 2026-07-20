@@ -1,3 +1,10 @@
+<a name="1.0.0"></a>
+## [1.0.0](https://www.github.com/FrostyTwilight/SteamShare/releases/tag/v1.0.0) (2026-07-20)
+
+### 🏠 Maintenance
+
+* first major release — stabilize API and release pipeline
+
 <a name="0.1.4"></a>
 ## [0.1.4](https://www.github.com/FrostyTwilight/SteamShare/releases/tag/v0.1.4) (2026-07-20)
 
