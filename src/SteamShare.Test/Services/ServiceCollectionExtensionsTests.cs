@@ -11,15 +11,28 @@ public class ServiceCollectionExtensionsTests : IDisposable
 {
     private readonly string _testDir;
     private readonly ServiceProvider _provider;
+    private readonly string? _originalTestMode;
 
     public ServiceCollectionExtensionsTests()
     {
         _testDir = Path.Combine(Path.GetTempPath(), $"SteamShareTest_{Guid.NewGuid():N}");
+
+        // Save and restore env var to avoid leaking to other tests running in parallel.
+        _originalTestMode = Environment.GetEnvironmentVariable("STEAMSHARE_TEST_MODE");
         Environment.SetEnvironmentVariable("STEAMSHARE_TEST_MODE", "dummy");
 
-        var services = new ServiceCollection();
-        services.AddSteamShareCore(_testDir);
-        _provider = services.BuildServiceProvider();
+        try
+        {
+            var services = new ServiceCollection();
+            services.AddSteamShareCore(_testDir);
+            _provider = services.BuildServiceProvider();
+        }
+        catch
+        {
+            // Restore env var immediately if construction fails, then rethrow.
+            Environment.SetEnvironmentVariable("STEAMSHARE_TEST_MODE", _originalTestMode);
+            throw;
+        }
     }
 
     [Fact]
@@ -129,12 +142,32 @@ public class ServiceCollectionExtensionsTests : IDisposable
 
     public void Dispose()
     {
-        Environment.SetEnvironmentVariable("STEAMSHARE_TEST_MODE", null);
+        // Restore original env var value (null when it was not set).
+        Environment.SetEnvironmentVariable("STEAMSHARE_TEST_MODE", _originalTestMode);
         _provider.Dispose();
 
-        if (Directory.Exists(_testDir))
+        if (!Directory.Exists(_testDir))
         {
-            Directory.Delete(_testDir, true);
+            return;
+        }
+
+        // Retry with backoff — on Windows, SQLite journal files may not be
+        // released immediately after the last connection is disposed.
+        for (int i = 0; i < 5; i++)
+        {
+            try
+            {
+                Directory.Delete(_testDir, true);
+                return;
+            }
+            catch (IOException) when (i < 4)
+            {
+                Thread.Sleep(50 * (i + 1));
+            }
+            catch (UnauthorizedAccessException) when (i < 4)
+            {
+                Thread.Sleep(50 * (i + 1));
+            }
         }
     }
 }

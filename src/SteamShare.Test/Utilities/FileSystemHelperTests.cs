@@ -125,9 +125,28 @@ public class FileSystemHelperTests : IDisposable
 
     public void Dispose()
     {
-        if (Directory.Exists(_testDir))
+        if (!Directory.Exists(_testDir))
         {
-            Directory.Delete(_testDir, true);
+            return;
+        }
+
+        // Retry with backoff — on Windows, file handles from ReadAllTextAsync
+        // and hard link operations may not be released immediately.
+        for (int i = 0; i < 5; i++)
+        {
+            try
+            {
+                Directory.Delete(_testDir, true);
+                return;
+            }
+            catch (IOException) when (i < 4)
+            {
+                Thread.Sleep(50 * (i + 1));
+            }
+            catch (UnauthorizedAccessException) when (i < 4)
+            {
+                Thread.Sleep(50 * (i + 1));
+            }
         }
     }
 }

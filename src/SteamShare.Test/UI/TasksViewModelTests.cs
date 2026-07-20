@@ -42,9 +42,29 @@ public class TasksViewModelTests : IDisposable
 
     public void Dispose()
     {
-        if (Directory.Exists(_tempDir))
+        if (!Directory.Exists(_tempDir))
         {
-            try { Directory.Delete(_tempDir, recursive: true); } catch { /* best-effort */ }
+            return;
+        }
+
+        // Retry with backoff — on Windows, SQLite journal files from
+        // TrackingDatabaseService and DownloadOrchestrator may not be
+        // released immediately.
+        for (int i = 0; i < 5; i++)
+        {
+            try
+            {
+                Directory.Delete(_tempDir, true);
+                return;
+            }
+            catch (IOException) when (i < 4)
+            {
+                Thread.Sleep(50 * (i + 1));
+            }
+            catch (UnauthorizedAccessException) when (i < 4)
+            {
+                Thread.Sleep(50 * (i + 1));
+            }
         }
     }
 

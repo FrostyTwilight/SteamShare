@@ -84,6 +84,10 @@ public sealed class DownloadOrchestrator
         {
             targetPath = null;
         }
+        else
+        {
+            targetPath = Path.Combine(targetPath, name);
+        }
 
         LogSerilog.Information("Download target: {TargetPath} (id={PublishedFileId})",
             targetPath, publishedFileId);

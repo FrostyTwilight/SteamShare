@@ -7,15 +7,22 @@ namespace SteamShare.Test.CLI;
 /// All tests use STEAMSHARE_TEST_MODE=dummy to activate DummyWorkshopService.
 /// Tests run via Process.Start using dotnet run against the CLI project.
 /// </summary>
+[Collection("SequentialCliTests")]
 public class CliIntegrationTests : IDisposable
 {
     private static readonly string CliProjectPath = ResolveCliProjectPath();
     private readonly string _tempDir;
+    private readonly string _dataDir;
+    private readonly string _workDir;
 
     public CliIntegrationTests()
     {
         _tempDir = Path.Combine(Path.GetTempPath(), "SteamShare_CLI_Tests", Guid.NewGuid().ToString("N"));
+        _dataDir = Path.Combine(_tempDir, "data");
+        _workDir = Path.Combine(_tempDir, "work");
         Directory.CreateDirectory(_tempDir);
+        Directory.CreateDirectory(_dataDir);
+        Directory.CreateDirectory(_workDir);
     }
 
     public void Dispose()
@@ -73,9 +80,10 @@ public class CliIntegrationTests : IDisposable
             RedirectStandardError = true,
             UseShellExecute = false,
             CreateNoWindow = true,
-            WorkingDirectory = _tempDir
+            WorkingDirectory = _workDir
         };
 
+        startInfo.Environment["STEAMSHARE_DATA_DIR"] = _dataDir;
         startInfo.Environment["STEAMSHARE_TEST_MODE"] = "dummy";
         startInfo.Environment["STEAMSHARE_TEST_PREPOPULATE"] = "1";
         startInfo.Environment["NO_COLOR"] = "1";

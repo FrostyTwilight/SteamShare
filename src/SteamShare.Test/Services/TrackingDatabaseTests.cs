@@ -453,9 +453,28 @@ public class TrackingDatabaseTests : IDisposable
 
     public void Dispose()
     {
-        if (Directory.Exists(_testDir))
+        if (!Directory.Exists(_testDir))
         {
-            Directory.Delete(_testDir, true);
+            return;
+        }
+
+        // Retry with backoff — on Windows, SQLite journal files may not be
+        // released immediately after the last connection is disposed.
+        for (int i = 0; i < 5; i++)
+        {
+            try
+            {
+                Directory.Delete(_testDir, true);
+                return;
+            }
+            catch (IOException) when (i < 4)
+            {
+                Thread.Sleep(50 * (i + 1));
+            }
+            catch (UnauthorizedAccessException) when (i < 4)
+            {
+                Thread.Sleep(50 * (i + 1));
+            }
         }
     }
 }
